@@ -6,14 +6,18 @@ public class Radio {
     public void next() {
         if (currentRadioStation < 9) {
             currentRadioStation = currentRadioStation + 1;
-        }else currentRadioStation = 0;
+        } else {
+            currentRadioStation = 0;
+        }
     }
 
     // переключение на предыдущую станцию
     public void prev() {
         if (currentRadioStation > 0) {
             currentRadioStation = currentRadioStation - 1;
-        }else currentRadioStation = 9;
+        } else {
+            currentRadioStation = 9;
+        }
     }
 
     // получение текущей температуры

@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 public class RadioTest {
 
     @Test
-    public void shouldSetCurrentRadioStation(){
+    public void shouldSetCurrentRadioStation() {
         Radio radio = new Radio();
 
         radio.setСurrentRadioStation(7);
@@ -16,7 +16,7 @@ public class RadioTest {
     }
 
     @Test
-    public void shouldNotSetCurrentRadioStationAboveMax(){
+    public void shouldNotSetCurrentRadioStationAboveMax() {
         Radio radio = new Radio();
 
         radio.setСurrentRadioStation(10);
@@ -28,7 +28,7 @@ public class RadioTest {
     }
 
     @Test
-    public void shouldNotSetCurrentRadioStationUnderMin(){
+    public void shouldNotSetCurrentRadioStationUnderMin() {
         Radio radio = new Radio();
 
         radio.setСurrentRadioStation(-1);
@@ -40,7 +40,7 @@ public class RadioTest {
     }
 
     @Test
-    public void shouldIncreaseRadioStationToTarget(){
+    public void shouldIncreaseRadioStationToTarget() {
         Radio radio = new Radio();
 
         radio.setСurrentRadioStation(9);
@@ -57,7 +57,7 @@ public class RadioTest {
     }
 
     @Test
-    public void shouldDecreaseRadioStationToTarget(){
+    public void shouldDecreaseRadioStationToTarget() {
         Radio radio = new Radio();
 
         radio.setСurrentRadioStation(3);
@@ -74,7 +74,7 @@ public class RadioTest {
     }
 
     @Test
-    public void shouldIncreaseVolumeToTarget(){
+    public void shouldIncreaseVolumeToTarget() {
         Radio radio = new Radio();
 
         int target = 30;
@@ -90,7 +90,7 @@ public class RadioTest {
     }
 
     @Test
-    public void shouldNotIncreaseVolumeAboveMax(){
+    public void shouldNotIncreaseVolumeAboveMax() {
         Radio radio = new Radio();
 
         radio.currentVolume = 100;
@@ -103,7 +103,7 @@ public class RadioTest {
     }
 
     @Test
-    public void shouldDecreaseVolumeToTarget(){
+    public void shouldDecreaseVolumeToTarget() {
         Radio radio = new Radio();
 
         int target = 35;
@@ -120,7 +120,7 @@ public class RadioTest {
     }
 
     @Test
-    public void shouldNotDecreaseVolumeUnderMin(){
+    public void shouldNotDecreaseVolumeUnderMin() {
         Radio radio = new Radio();
 
         radio.currentVolume = 0;
