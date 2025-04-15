@@ -46,7 +46,7 @@ public class RadioTest {
         radio.setСurrentRadioStation(9);
         int target = 6;
 
-        while (radio.currentRadioStation != target) {
+        while (radio.getCurrentRadioStation() != target) {
             radio.next();
         }
 
@@ -63,7 +63,7 @@ public class RadioTest {
         radio.setСurrentRadioStation(3);
         int target = 5;
 
-        while (radio.currentRadioStation != target) {
+        while (radio.getCurrentRadioStation() != target) {
             radio.prev();
         }
 
@@ -79,7 +79,7 @@ public class RadioTest {
 
         int target = 30;
 
-        while (radio.currentVolume != target) {
+        while (radio.getCurrentVolume() != target) {
             radio.increaseVolume();
         }
 
@@ -93,7 +93,7 @@ public class RadioTest {
     public void shouldNotIncreaseVolumeAboveMax() {
         Radio radio = new Radio();
 
-        radio.currentVolume = 100;
+        radio.setСurrentVolume(100);
         radio.increaseVolume();
 
         int expected = 100;
@@ -107,9 +107,9 @@ public class RadioTest {
         Radio radio = new Radio();
 
         int target = 35;
-        radio.currentVolume = 54;
+        radio.setСurrentVolume(54);
 
-        while (radio.currentVolume != target) {
+        while (radio.getCurrentVolume() != target) {
             radio.decreaseVolume();
         }
 
@@ -123,8 +123,31 @@ public class RadioTest {
     public void shouldNotDecreaseVolumeUnderMin() {
         Radio radio = new Radio();
 
-        radio.currentVolume = 0;
         radio.decreaseVolume();
+
+        int expected = 0;
+        int actual = radio.getCurrentVolume();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldNotSetCurrentVolumeAboveMax() {
+        Radio radio = new Radio();
+
+        radio.setСurrentVolume(101);
+
+        int expected = 0;
+        int actual = radio.getCurrentVolume();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldNotSetCurrentVolumeUnderMin() {
+        Radio radio = new Radio();
+
+        radio.setСurrentVolume(-1);
 
         int expected = 0;
         int actual = radio.getCurrentVolume();

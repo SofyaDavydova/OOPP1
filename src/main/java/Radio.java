@@ -1,6 +1,6 @@
 public class Radio {
-    public int currentRadioStation; // текущая радиостанция
-    public int currentVolume; // текущий уровень громкости
+    private int currentRadioStation; // текущая радиостанция
+    private int currentVolume; // текущий уровень громкости
 
     // переключение на следующую станцию
     public void next() {
@@ -39,6 +39,17 @@ public class Radio {
     // получение текущего уровня звука
     public int getCurrentVolume() {
         return currentVolume;
+    }
+
+    // установка уровня звука вручную
+    public void setСurrentVolume (int newCurrentVolume) {
+        if (newCurrentVolume < 0) {
+            return;
+        }
+        if (newCurrentVolume > 100) {
+            return;
+        }
+        currentVolume = newCurrentVolume;
     }
 
     // увеличение звука на 1
