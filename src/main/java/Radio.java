@@ -1,3 +1,10 @@
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+
 public class Radio {
     private int currentRadioStation; // текущая радиостанция
     private int currentVolume; // текущий уровень громкости
@@ -13,46 +20,7 @@ public class Radio {
     public Radio(){
         this.maxRadioStation = getAmountRadioStations() - 1;
     }
-
-    // получение минимального номера радиотсанции
-    public int getMinRadioStation() {
-        return minRadioStation;
-    }
-
-    // получение максимального номера радиостанции
-    public int getMaxRadioStation() {
-        return maxRadioStation;
-    }
-
-    // получение текущего количества радиостанций
-    public int getAmountRadioStations() {
-        return amountRadioStations;
-    }
-
-        // переключение на следующую станцию
-    public void next() {
-        if (currentRadioStation < getMaxRadioStation()) {
-            currentRadioStation = currentRadioStation + 1;
-        } else {
-            currentRadioStation = getMinRadioStation();
-        }
-    }
-
-    // переключение на предыдущую станцию
-    public void prev() {
-        if (currentRadioStation > getMinRadioStation()) {
-            currentRadioStation = currentRadioStation - 1;
-        } else {
-            currentRadioStation = getMaxRadioStation();
-        }
-    }
-
-    // получение текущей температуры
-    public int getCurrentRadioStation() {
-        return currentRadioStation;
-    }
-
-    // установка номера радиостанции вручную
+      // установка номера радиостанции вручную
     public void setСurrentRadioStation(int newCurrentRadioStation) {
         if (newCurrentRadioStation < getMinRadioStation()) {
             return;
@@ -61,11 +29,6 @@ public class Radio {
             return;
         }
         currentRadioStation = newCurrentRadioStation;
-    }
-
-    // получение текущего уровня звука
-    public int getCurrentVolume() {
-        return currentVolume;
     }
 
     // установка уровня звука вручную
@@ -77,6 +40,24 @@ public class Radio {
             return;
         }
         currentVolume = newCurrentVolume;
+    }
+
+        // переключение на следующую станцию
+    public void next() {
+        if (currentRadioStation < 9) {
+            currentRadioStation = currentRadioStation + 1;
+        } else {
+            currentRadioStation = 0;
+        }
+    }
+
+    // переключение на предыдущую станцию
+    public void prev() {
+        if (currentRadioStation > 0) {
+            currentRadioStation = currentRadioStation - 1;
+        } else {
+            currentRadioStation = 9;
+        }
     }
 
     // увеличение звука на 1
@@ -92,5 +73,4 @@ public class Radio {
             currentVolume = currentVolume - 1;
         }
     }
-
-    }
+}
