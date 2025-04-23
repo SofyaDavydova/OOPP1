@@ -1,22 +1,49 @@
 public class Radio {
     private int currentRadioStation; // текущая радиостанция
     private int currentVolume; // текущий уровень громкости
+    private int amountRadioStations = 10; // количество радиостанций
+    private int minRadioStation; // минимальный номер радиостанции
+    private int maxRadioStation; // максимальный номер радиостанции
 
-    // переключение на следующую станцию
+    public Radio(int size) {
+        this.amountRadioStations = size;
+        this.maxRadioStation = size - 1;
+    }
+
+    public Radio(){
+        this.maxRadioStation = getAmountRadioStations() - 1;
+    }
+
+    // получение минимального номера радиотсанции
+    public int getMinRadioStation() {
+        return minRadioStation;
+    }
+
+    // получение максимального номера радиостанции
+    public int getMaxRadioStation() {
+        return maxRadioStation;
+    }
+
+    // получение текущего количества радиостанций
+    public int getAmountRadioStations() {
+        return amountRadioStations;
+    }
+
+        // переключение на следующую станцию
     public void next() {
-        if (currentRadioStation < 9) {
+        if (currentRadioStation < getMaxRadioStation()) {
             currentRadioStation = currentRadioStation + 1;
         } else {
-            currentRadioStation = 0;
+            currentRadioStation = getMinRadioStation();
         }
     }
 
     // переключение на предыдущую станцию
     public void prev() {
-        if (currentRadioStation > 0) {
+        if (currentRadioStation > getMinRadioStation()) {
             currentRadioStation = currentRadioStation - 1;
         } else {
-            currentRadioStation = 9;
+            currentRadioStation = getMaxRadioStation();
         }
     }
 
@@ -27,10 +54,10 @@ public class Radio {
 
     // установка номера радиостанции вручную
     public void setСurrentRadioStation(int newCurrentRadioStation) {
-        if (newCurrentRadioStation < 0) {
+        if (newCurrentRadioStation < getMinRadioStation()) {
             return;
         }
-        if (newCurrentRadioStation > 9) {
+        if (newCurrentRadioStation > getMaxRadioStation()) {
             return;
         }
         currentRadioStation = newCurrentRadioStation;
@@ -42,7 +69,7 @@ public class Radio {
     }
 
     // установка уровня звука вручную
-    public void setСurrentVolume (int newCurrentVolume) {
+    public void setСurrentVolume(int newCurrentVolume) {
         if (newCurrentVolume < 0) {
             return;
         }
@@ -65,4 +92,5 @@ public class Radio {
             currentVolume = currentVolume - 1;
         }
     }
-}
+
+    }
