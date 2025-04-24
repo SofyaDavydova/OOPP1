@@ -1,9 +1,6 @@
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
 
 public class Radio {
     private int currentRadioStation; // текущая радиостанция
@@ -20,8 +17,10 @@ public class Radio {
     public Radio(){
         this.maxRadioStation = getAmountRadioStations() - 1;
     }
+
       // установка номера радиостанции вручную
-    public void setСurrentRadioStation(int newCurrentRadioStation) {
+
+    public void setСurrentRadioStation1(int newCurrentRadioStation) {
         if (newCurrentRadioStation < getMinRadioStation()) {
             return;
         }
@@ -32,7 +31,7 @@ public class Radio {
     }
 
     // установка уровня звука вручную
-    public void setСurrentVolume(int newCurrentVolume) {
+    public void setСurrentVolume1(int newCurrentVolume) {
         if (newCurrentVolume < 0) {
             return;
         }

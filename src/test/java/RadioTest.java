@@ -7,7 +7,7 @@ public class RadioTest {
     @Test
     public void shouldSetCurrentRadioStation() {
 
-        radio.setCurrentRadioStation(7);
+        radio.setСurrentRadioStation1(7);
 
         int expected = 7;
         int actual = radio.getCurrentRadioStation();
@@ -18,7 +18,7 @@ public class RadioTest {
     @Test
     public void shouldNotSetCurrentRadioStationAboveMax() {
 
-        radio.setCurrentRadioStation(10);
+        radio.setСurrentRadioStation1(10);
 
         int expected = 0;
         int actual = radio.getCurrentRadioStation();
@@ -29,7 +29,7 @@ public class RadioTest {
     @Test
     public void shouldNotSetCurrentRadioStationUnderMin() {
 
-        radio.setCurrentRadioStation(-1);
+        radio.setСurrentRadioStation1(-1);
 
         int expected = 0;
         int actual = radio.getCurrentRadioStation();
@@ -40,7 +40,7 @@ public class RadioTest {
     @Test
     public void shouldIncreaseRadioStationToTarget() {
 
-        radio.setCurrentRadioStation(9);
+        radio.setСurrentRadioStation1(9);
         int target = 6;
 
         while (radio.getCurrentRadioStation() != target) {
@@ -56,7 +56,7 @@ public class RadioTest {
     @Test
     public void shouldDecreaseRadioStationToTarget() {
 
-        radio.setCurrentRadioStation(3);
+        radio.setСurrentRadioStation1(3);
         int target = 5;
 
         while (radio.getCurrentRadioStation() != target) {
@@ -87,7 +87,7 @@ public class RadioTest {
     @Test
     public void shouldNotIncreaseVolumeAboveMax() {
 
-        radio.setCurrentVolume(100);
+        radio.setСurrentVolume1(100);
         radio.increaseVolume();
 
         int expected = 100;
@@ -100,7 +100,7 @@ public class RadioTest {
     public void shouldDecreaseVolumeToTarget() {
 
         int target = 35;
-        radio.setCurrentVolume(54);
+        radio.setСurrentVolume1(54);
 
         while (radio.getCurrentVolume() != target) {
             radio.decreaseVolume();
@@ -126,7 +126,7 @@ public class RadioTest {
     @Test
     public void shouldNotSetCurrentVolumeAboveMax() {
 
-        radio.setCurrentVolume(101);
+        radio.setСurrentVolume1(101);
 
         int expected = 0;
         int actual = radio.getCurrentVolume();
@@ -137,7 +137,7 @@ public class RadioTest {
     @Test
     public void shouldNotSetCurrentVolumeUnderMin() {
 
-        radio.setCurrentVolume(-1);
+        radio.setСurrentVolume1(-1);
 
         int expected = 0;
         int actual = radio.getCurrentVolume();
