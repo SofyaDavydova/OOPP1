@@ -20,7 +20,7 @@ public class Radio {
 
       // установка номера радиостанции вручную
 
-    public void setСurrentRadioStation1(int newCurrentRadioStation) {
+    public void setCurrentRadioStation(int newCurrentRadioStation) {
         if (newCurrentRadioStation < getMinRadioStation()) {
             return;
         }
@@ -31,7 +31,7 @@ public class Radio {
     }
 
     // установка уровня звука вручную
-    public void setСurrentVolume1(int newCurrentVolume) {
+    public void setCurrentVolume(int newCurrentVolume) {
         if (newCurrentVolume < 0) {
             return;
         }
