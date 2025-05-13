@@ -1,8 +1,47 @@
+import lombok.Data;
+
+@Data
+
 public class Radio {
     private int currentRadioStation; // текущая радиостанция
     private int currentVolume; // текущий уровень громкости
+    private int amountRadioStations = 10; // количество радиостанций
+    private int minRadioStation; // минимальный номер радиостанции
+    private int maxRadioStation; // максимальный номер радиостанции
 
-    // переключение на следующую станцию
+    public Radio(int size) {
+        this.amountRadioStations = size;
+        this.maxRadioStation = size - 1;
+    }
+
+    public Radio(){
+        this.maxRadioStation = getAmountRadioStations() - 1;
+    }
+
+      // установка номера радиостанции вручную
+
+    public void setCurrentRadioStation(int newCurrentRadioStation) {
+        if (newCurrentRadioStation < getMinRadioStation()) {
+            return;
+        }
+        if (newCurrentRadioStation > getMaxRadioStation()) {
+            return;
+        }
+        currentRadioStation = newCurrentRadioStation;
+    }
+
+    // установка уровня звука вручную
+    public void setCurrentVolume(int newCurrentVolume) {
+        if (newCurrentVolume < 0) {
+            return;
+        }
+        if (newCurrentVolume > 100) {
+            return;
+        }
+        currentVolume = newCurrentVolume;
+    }
+
+        // переключение на следующую станцию
     public void next() {
         if (currentRadioStation < 9) {
             currentRadioStation = currentRadioStation + 1;
@@ -18,38 +57,6 @@ public class Radio {
         } else {
             currentRadioStation = 9;
         }
-    }
-
-    // получение текущей температуры
-    public int getCurrentRadioStation() {
-        return currentRadioStation;
-    }
-
-    // установка номера радиостанции вручную
-    public void setСurrentRadioStation(int newCurrentRadioStation) {
-        if (newCurrentRadioStation < 0) {
-            return;
-        }
-        if (newCurrentRadioStation > 9) {
-            return;
-        }
-        currentRadioStation = newCurrentRadioStation;
-    }
-
-    // получение текущего уровня звука
-    public int getCurrentVolume() {
-        return currentVolume;
-    }
-
-    // установка уровня звука вручную
-    public void setСurrentVolume (int newCurrentVolume) {
-        if (newCurrentVolume < 0) {
-            return;
-        }
-        if (newCurrentVolume > 100) {
-            return;
-        }
-        currentVolume = newCurrentVolume;
     }
 
     // увеличение звука на 1
